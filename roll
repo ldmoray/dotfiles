@@ -1,0 +1,12 @@
+#!/opt/local/bin/python
+
+import random, sys, argparse
+
+parser = argparse.ArgumentParser(description='Roll dice on the command line.')
+parser.add_argument('dice')
+args = parser.parse_args()
+whatRoll = args.dice.split('d')
+res = []
+for n in range(int(whatRoll[0])):
+    res.append( random.randint(1,int(whatRoll[1])))
+print sum(res)

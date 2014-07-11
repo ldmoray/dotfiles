@@ -3,10 +3,23 @@
 import random, sys, argparse
 
 parser = argparse.ArgumentParser(description='Roll dice on the command line.')
-parser.add_argument('dice')
+parser.add_argument('dice',
+        help='The dice to roll, written as "XdX"')
+parser.add_argument('-p',type=int, default=0,
+        help='Positive modifier, added to the final roll')
+parser.add_argument('-m',type=int, default=0,
+        help='Negative modifier, subtracted from the final roll')
+parser.add_argument('-a', action='store_true',
+        help='Display all rolls. Usefull for pool systems.')
 args = parser.parse_args()
+
 whatRoll = args.dice.split('d')
 res = []
+
 for n in range(int(whatRoll[0])):
     res.append( random.randint(1,int(whatRoll[1])))
-print sum(res)
+
+if args.a:
+    print res
+else:
+    print sum(res) + args.p - args.m

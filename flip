@@ -1,0 +1,15 @@
+#!/opt/local/bin/python
+
+import random, sys, argparse
+
+parser = argparse.ArgumentParser(description='Flip coins on the command line.')
+parser.add_argument('count', type=int, nargs='?', default=1,
+        help='The number of coins to flip ')
+args = parser.parse_args()
+
+res = []
+
+for n in range(args.count):
+	res.append(random.choice(['H','T']))
+
+print res

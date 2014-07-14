@@ -1,0 +1,12 @@
+#!/bin/bash
+#switches environments of python scripts
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+FILES="$DIR"/*
+COR="$( which python )"
+for f in $FILES; do
+	head -n 1 $f | grep python > /dev/null 
+	RETVAL=$?
+	if [[ $RETVAL == 0 ]]; then
+		sed -i "" "1 s?.*?#!${COR}?" $f 
+	fi
+done

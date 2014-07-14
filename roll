@@ -2,15 +2,15 @@
 
 import random, sys, argparse
 
-parser = argparse.ArgumentParser(description='Roll dice on the command line.')
-parser.add_argument('dice',
+parser = argparse.ArgumentParser(description='Roll dice on the command line. Defaults to 1d6.')
+parser.add_argument('dice', nargs='?', default='1d6',
         help='The dice to roll, written as "XdX"')
 parser.add_argument('-p',type=int, default=0,
         help='Positive modifier, added to the final roll')
 parser.add_argument('-m',type=int, default=0,
         help='Negative modifier, subtracted from the final roll')
 parser.add_argument('-a', action='store_true',
-        help='Display all rolls. Usefull for pool systems.')
+        help='Display all rolls. Useful for pool systems.')
 args = parser.parse_args()
 
 whatRoll = args.dice.split('d')

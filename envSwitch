@@ -1,4 +1,8 @@
 #!/bin/bash
+
+#This projected is licensed under the terms of the MIT license.
+#Copyright (c) 2014 Lenny Morayniss
+
 #switches environments of python scripts
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 FILES="$DIR"/*

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#Code from Thomas Wheeler
+#https://www.http://randomartifacts.blogspot.ca/2012/10/a-proper-cygwin-environment.html
+
 # get current git branch name
 function git_branch {
 	export gitbranch=[$(git rev-parse --abbrev-ref HEAD 2>/dev/null)]

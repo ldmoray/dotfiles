@@ -1,5 +1,8 @@
 #!/opt/local/bin/python
 
+#This projected is licensed under the terms of the MIT license.
+#Copyright (c) 2014 Lenny Morayniss
+
 import random, sys, argparse
 
 parser = argparse.ArgumentParser(description='Roll dice on the command line. Defaults to 1d6.')

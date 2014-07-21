@@ -59,10 +59,14 @@ Plugin 'gmarik/Vundle.vim'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
+Bundle 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-fugitive'
 Plugin 'jceb/vim-orgmode'
 Plugin 'utl.vim'
 Plugin 'speeddating.vim'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+Bundle 'rking/ag.vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
@@ -101,12 +105,6 @@ nmap <leader>w :w!<cr>
 " :W sudo saves the file 
 " (useful for handling the permission-denied error)
 command W w !sudo tee % > /dev/null
-
-" Pathogen
-try
-"	execute pathogen#infect()
-catch
-endtry
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

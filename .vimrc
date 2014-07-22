@@ -3,7 +3,7 @@
 "       Amir Salihefendic
 "       http://amix.dk - amix@amix.dk
 "
-"Custom Versiom For:
+"Custom Version For:
 "		Lenny Morayniss
 "
 " Version: 

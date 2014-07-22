@@ -301,9 +301,24 @@ set viminfo^=%
 set laststatus=2
 
 " Format the status line
-set statusline=\ %{HasPaste()}%.20f%m%r%h\ %w\ \ %{fugitive#statusline()}\ \ CWD:\ %.20{getcwd()}\ \ \ Line:\ %l
-
-
+set statusline=
+set statusline+=[%n]%{HasPaste()}[%t]%m%r%h
+set statusline+=%{GitStatus()}
+set statusline+=\ \ 
+set statusline+=CWD:\ %.20{getcwd()}
+set statusline+=\ \ 
+set statusline+=%y
+set statusline+=[%{strlen(&fenc)?&fenc:&enc}]
+set statusline+=[%{&fileformat}]
+set statusline+=\ \ 
+set statusline+=L%l/%L\ \ %P
+function! GitStatus()
+	if fugitive#statusline() == ''
+		return ''
+	else
+		return "\ \ ".fugitive#statusline()
+	endif
+endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -341,7 +356,7 @@ autocmd BufWrite *.coffee :call DeleteTrailingWS()
 vnoremap <silent> gv :call VisualSelection('gv', '')<CR>
 
 " Open Ack and put the cursor in the right position
-map <leader>g :Ack 
+map <leader>g :Ag
 
 " When you press <leader>r you can search and replace the selected text
 vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>

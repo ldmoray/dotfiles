@@ -67,6 +67,7 @@ Plugin 'speeddating.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Bundle 'rking/ag.vim'
+Bundle 'freitass/todo.txt-vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
@@ -106,7 +107,7 @@ nmap <leader>w :w!<cr>
 " (useful for handling the permission-denied error)
 command W w !sudo tee % > /dev/null
 
-set shell=bash\ --rcfile\ ~/.bash_prompt
+set shell=bash\ --rcfile\ ~/.profile
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -116,6 +117,9 @@ set so=7
 
 " Turn on the WiLd menu
 set wildmenu
+
+" Use Modeline
+set modeline
 
 " Ignore compiled files
 set wildignore=*.o,*~,*.pyc
@@ -312,7 +316,7 @@ set statusline+=%y
 set statusline+=[%{strlen(&fenc)?&fenc:&enc}]
 set statusline+=[%{&fileformat}]
 set statusline+=\ \ 
-set statusline+=L%l/%L\ \ %P
+set statusline+=[C%v][L%l/%L][%P]
 function! GitStatus()
 	if fugitive#statusline() == ''
 		return ''

@@ -41,13 +41,13 @@ function settitle() {
 		p=..${p:${l}}
 	fi
 	t="$TTYNAME $p"
-	#echo -ne "\e]2;$t\a\e]1;$t\a";
+	echo -ne "\e]2;$t\a\e]1;$t\a";
 	d=$p
 }
 USR="ldm"
 PROMPT_COMMAND='settitle; git_branch; history -a;'
-if [ $0 = "-bash" ] 
-	then export PS1='\[\e${usercolor}\][$USR]\[\e${gitcolor}\]${gitbranch}\[\e${cwdcolor}\][$d]\[\e${inputcolor}\] $ ';
+if [ -ne $VIM_RUNTIME ] 
+	then export PS1='\[\e${usercolor}\][$HOST]\[\e${gitcolor}\]${gitbranch}\[\e${cwdcolor}\][$d]\[\e${inputcolor}\] $ ';
 else
 	export PS1='\[\e[0;35m\][vim]\[\e${gitcolor}\]${gitbranch}\[\e${cwdcolor}\][$d]\[\e${inputcolor}\] $ ';
 fi

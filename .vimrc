@@ -68,6 +68,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Bundle 'rking/ag.vim'
 Bundle 'freitass/todo.txt-vim'
+Bundle 'scrooloose/nerdtree'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 

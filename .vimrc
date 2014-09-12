@@ -69,6 +69,7 @@ Plugin 'plasticboy/vim-markdown'
 Bundle 'rking/ag.vim'
 Bundle 'freitass/todo.txt-vim'
 Bundle 'scrooloose/nerdtree'
+Bundle 'majutsushi/tagbar'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 

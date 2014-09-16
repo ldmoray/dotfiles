@@ -235,6 +235,8 @@ set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
 
+" IPC144 settings
+au FileType c setl sw=3 sts=3 et
 
 """"""""""""""""""""""""""""""
 " => Visual mode related

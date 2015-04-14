@@ -11,8 +11,8 @@ args = parser.parse_args()
 
 try:
 	if len(args.l) == 1:
-		print random.shuffle(range(args.l[0]))
-	else:
-		print random.shuffle(args.l)
-catch TypeError:
+		args.l = range(int(args.l[0]))
+	random.shuffle(args.l)
+	print args.l
+except ValueError:
 	print "You can't permute one thing. Idiot."

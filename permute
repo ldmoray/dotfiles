@@ -1,0 +1,18 @@
+#!/opt/local/bin/python
+
+#This projected is licensed under the terms of the MIT license.
+#Copyright (c) 2014 Lenny Morayniss
+
+import random, sys, argparse
+
+parser = argparse.ArgumentParser(description='Randomly permute a sequence, or return a permuted range.')
+parser.add_argument('l', nargs='+')
+args = parser.parse_args()
+
+try:
+	if len(args.l) == 1:
+		print random.shuffle(range(args.l[0]))
+	else:
+		print random.shuffle(args.l)
+catch TypeError:
+	print "You can't permute one thing. Idiot."

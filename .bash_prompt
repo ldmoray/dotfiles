@@ -1,8 +1,5 @@
 #!/bin/bash
 
-#Code from Thomas Wheeler
-#https://www.http://randomartifacts.blogspot.ca/2012/10/a-proper-cygwin-environment.html
-
 # get current git branch name
 function git_branch {
 	export gitbranch=[$(git rev-parse --abbrev-ref HEAD 2>/dev/null)]
@@ -36,17 +33,24 @@ user_color
 
 # Setup for window title
 export TTYNAME=$$
+d="cyclica"
 function settitle() {
 	p=$(pwd);
-	let l=${#p}-25
+	let l=${#p}-15
 	if [ "$l" -gt "0" ]; then
 		p=..${p:${l}}
 	fi
 	t="$TTYNAME $p"
-	#echo -ne "\e]2;$t\a\e]1;$t\a";
+	echo -ne "\e]2;$t\a\e]1;$t\a";
+	d=$p
 }
-
+USR="ldm"
 PROMPT_COMMAND='settitle; git_branch; history -a;'
-export PS1='\[\e${usercolor}\][\u]\[\e${gitcolor}\]${gitbranch}\[\e${cwdcolor}\][$PWD]\[\e${inputcolor}\] $ '
+if [ -ne $VIM_RUNTIME ] 
+	then export PS1='\[\e${usercolor}\][$HOST]\[\e${gitcolor}\]${gitbranch}\[\e${cwdcolor}\][$d]\[\e${inputcolor}\] $ ';
+else
+	export PS1='\[\e[0;35m\][vim]\[\e${gitcolor}\]${gitbranch}\[\e${cwdcolor}\][$d]\[\e${inputcolor}\] $ ';
+fi
+
 
 

@@ -16,13 +16,13 @@ def upload(ftp, filename):
         ftp.storbinary("STOR " + filename, open(filename, "rb"), 1024)
 
 if __name__ == '__main__':
-	parser = argparse.ArgumentParser(description='Copy files over ftp on loop')
-	parser.add_argument('address', action='store')
-	parser.add_argument('--user', action='store')
-	parser.add_argument('--password', action='store')
-	parser.add_argument('filename', action='store')
+    parser = argparse.ArgumentParser(description='Copy files over ftp on loop')
+    parser.add_argument('address', action='store')
+    parser.add_argument('--user', action='store')
+    parser.add_argument('--password', action='store')
+    parser.add_argument('filename', action='store')
 
-	args = parser.parse_args()
+    args = parser.parse_args()
     ftps = FTP_TLS(args.address)
     ftps.login(args.user, args.password)
     ftps.prot_p()

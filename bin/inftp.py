@@ -24,10 +24,10 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
     ftps = FTP_TLS(args.address)
-    ftps.login(args.user, args.password)
-    ftps.prot_p()
     while True:
+    	ftps.login(args.user, args.password)
+    	ftps.prot_p()
         upload(ftps, args.filename)
+    	ftps.prot_c()
+    	ftps.quit()
         time.sleep(300)
-        ftps.prot_c()
-        ftps.quit()

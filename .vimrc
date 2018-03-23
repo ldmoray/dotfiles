@@ -61,15 +61,7 @@ Plugin 'gmarik/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 Bundle 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-fugitive'
-Plugin 'jceb/vim-orgmode'
-Plugin 'utl.vim'
-Plugin 'speeddating.vim'
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
 Bundle 'rking/ag.vim'
-Bundle 'freitass/todo.txt-vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'majutsushi/tagbar'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
@@ -218,7 +210,7 @@ set noswapfile
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use spaces instead of tabs (off)
-" set expandtab
+set expandtab
 
 " Be smart when using tabs ;)
 set smarttab
@@ -235,8 +227,8 @@ set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
 
-" IPC144 settings
-au FileType c setl sw=3 sts=3 et
+" Python settings
+au FileType py setl et
 
 """"""""""""""""""""""""""""""
 " => Visual mode related
@@ -366,7 +358,7 @@ autocmd BufWrite *.coffee :call DeleteTrailingWS()
 vnoremap <silent> gv :call VisualSelection('gv', '')<CR>
 
 " Open Ack and put the cursor in the right position
-map <leader>g :Ag
+map <leader>g :Ag 
 
 " When you press <leader>r you can search and replace the selected text
 vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>

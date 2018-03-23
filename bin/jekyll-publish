@@ -1,0 +1,25 @@
+#!/usr/bin/python
+
+#This project is licensed under the terms of the MIT license.
+#Copyright (c) 2015 Lenny Morayniss
+
+import argparse
+import datetime
+import glob
+import os
+
+if __name__ == '__main__':
+	parser = argparse.ArgumentParser(description="Date and tag posts for jekyll.")
+	parser.add_argument('post', help='The post to publish')
+	args = parser.parse_args()
+
+	orig = os.path.join('_drafts/', args.post+'.md')
+	if os.path.isfile(orig):
+		today = datetime.date.today()
+		curr = os.path.split(orig)
+		new_loc = os.path.join(os.path.split(curr[0])[0], '_posts')
+		new_fname = today.isoformat() + '_' + curr[1]
+		os.rename(orig, os.path.join(new_loc, new_fname))
+	else:
+		print "File not found"
+

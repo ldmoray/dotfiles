@@ -1,6 +1,6 @@
 __author__ = 'Lenny Morayniss'
 '''
-This projected is licensed under the terms of the MIT license.
+This project is licensed under the terms of the MIT license.
 Copyright Lenny Morayiss 2015
 '''
 import argparse

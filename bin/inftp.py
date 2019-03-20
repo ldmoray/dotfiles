@@ -1,7 +1,7 @@
 __author__ = 'Lenny Morayniss'
 '''
 This project is licensed under the terms of the MIT license.
-Copyright Lenny Morayiss 2015
+Copyright Lenny Morayniss 2015
 '''
 import argparse
 from ftplib import FTP_TLS
